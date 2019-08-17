@@ -1,6 +1,6 @@
-function createPxSysTCP ( %isServerTCP, %port, %address, %connectOnCreated )
+function createPxSysTCP ( %port, %address, %connectOnCreated )
 {
-	if ( %isServerTCP  &&  !isObject (MissionCleanup) )
+	if ( !isObject (MissionCleanup) )
 	{
 		error ('createPxSysTCP () - MissionCleanup does not exist!');
 		return 0;
@@ -22,12 +22,9 @@ function createPxSysTCP ( %isServerTCP, %port, %address, %connectOnCreated )
 
 	%tcp.port        = %port;
 	%tcp.address     = %address;
-	%tcp.isServerTCP = defaultValue (%isServerTCP, false);
+	%tcp.isServerTCP = true;
 
-	if ( %tcp.isServerTCP )
-	{
-		MissionCleanup.add (%tcp);
-	}
+	MissionCleanup.add (%tcp);
 
 	if ( %connectOnCreated )
 	{
