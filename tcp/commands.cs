@@ -17,8 +17,7 @@ function PxSysTCP::onLine ( %this, %line )
 	switch$ ( %cmd )
 	{
 		case "SV_SCREEN_SIZE":
-			$PxSys::Width  = %a0;
-			$PxSys::Height = %a1;
+			PxSys_setSize (%a0, %a1);
 
 		case "SV_PIXEL_DATA":
 			if ( %a2 $= "colorPrintID" )

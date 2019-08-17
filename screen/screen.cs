@@ -15,6 +15,12 @@ function initPxSysScreen ( %appName, %appVersion, %brickGroup )
 // ------------------------------------------------
 
 
+function PxSys_setSize ( %width, %height )
+{
+	$PxSys::Width  = %width;
+	$PxSys::Height = %height;
+}
+
 function PxSys_getPixel ( %x, %y )
 {
 	return $PxSys_[%x, %y];
@@ -43,4 +49,6 @@ function PxSys_deleteAllPixels ()
 			}
 		}
 	}
+
+	$PxSys::HasBrickScreen = false;
 }
