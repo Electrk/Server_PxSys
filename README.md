@@ -103,8 +103,10 @@ Here are some global variables that you can use:
 
 | Variable | Description |
 | -------- | ------------ |
-| $PxSys::HasBrickScreen | Whether or not a brick screen has already been built. **(read only - do not modify)** |
 | $PxSys::Version | The version of PxSys we're using.  **(read only - do not modify)** |
+| $PxSys::HasBrickScreen | Whether or not a brick screen has already been built.  **(read only - do not modify)** |
+| $PxSys::Screen::Width | The width of the screen.  **(read only - do not modify)** |
+| $PxSys::Screen::Height | The height of the screen.  **(read only - do not modify)**  |
 | $PxSys::Screen::AppName | The name of your PxSys application. |
 | $PxSys::Screen::AppVersion | The version of your PxSys application. |
 | $PxSys::Screen::BrickGroup | The brick group we put all the screen bricks into. |
