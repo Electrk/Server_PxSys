@@ -1,6 +1,12 @@
 function PxSysTCP::onLine ( %this, %line )
 {
 	%cmd = getField (%line, 0);
+
+	if ( !$PxSys::HasBrickScreen  &&  %cmd !$= "SV_SCREEN_SIZE" )
+	{
+		return;
+	}
+
 	%a0  = getField (%line, 1);
 	%a1  = getField (%line, 2);
 	%a2  = getField (%line, 3);
@@ -20,7 +26,7 @@ function PxSysTCP::onLine ( %this, %line )
 			PxSys_setSize (%a0, %a1);
 
 		case "SV_PIXEL_DATA":
-			if ( %a2 $= "colorPrintID" )
+			if ( %a2 $= "colorPrintID"  &&  $PxSys::ColorPrintsEnabled )
 			{
 				$PxSys_[%a0, %a1].setPrint ($printNameTable["PxSys/colorPxID", %a3]);
 			}
@@ -32,7 +38,7 @@ function PxSysTCP::onLine ( %this, %line )
 			{
 				$PxSys_[%a0, %a1].setPrint (%a3);
 			}
-			else if ( %a2 $= "letterPrint" )
+			else if ( %a2 $= "letterPrint"  &&  $PxSys::LetterPrintsEnabled )
 			{
 				$PxSys_[%a0, %a1].setPrint (letterToPrintID (%a3));
 			}
