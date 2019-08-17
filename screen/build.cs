@@ -1,6 +1,11 @@
 // Builds either a vertical or horizontal brick screen for a PxSysScreen object.
 function buildPxSysScreen ( %data, %pos, %angleID, %color, %isVertical )
 {
+	if ( $PxSys::HasBrickScreen )
+	{
+		return;
+	}
+
 	if ( !isObject (%data) )
 	{
 		error ("buildPxSysScreen () - Datablock does not exist!");
@@ -82,4 +87,6 @@ function buildPxSysScreen ( %data, %pos, %angleID, %color, %isVertical )
 			PxSys_setPixel (%x, %y, %brick);
 		}
 	}
+
+	$PxSys::HasBrickScreen = true;
 }
