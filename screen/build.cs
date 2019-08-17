@@ -6,6 +6,11 @@ function buildPxSysScreen ( %data, %pos, %angleID, %color, %isVertical )
 		return;
 	}
 
+	if ( %data $= "" )
+	{
+		%data = brick1x1PrintData;
+	}
+
 	if ( !isObject (%data) )
 	{
 		error ("buildPxSysScreen () - Datablock does not exist!");
@@ -15,6 +20,12 @@ function buildPxSysScreen ( %data, %pos, %angleID, %color, %isVertical )
 	if ( %angleID < 0  ||  %angleID > 3 )
 	{
 		error ("buildPxSysScreen () - Invalid angleID");
+		return;
+	}
+
+	if ( $PxSys::Screen::Width $= ""  ||  $PxSys::Screen::Height $= "" )
+	{
+		error ("buildPxSysScreen () - Please set the width and height before building!");
 		return;
 	}
 
@@ -29,8 +40,8 @@ function buildPxSysScreen ( %data, %pos, %angleID, %color, %isVertical )
 	%posY = getWord (%pos, 1);
 	%posZ = getWord (%pos, 2);
 
-	%width  = $PxSys::Width;
-	%height = $PxSys::Height;
+	%width  = $PxSys::Screen::Width;
+	%height = $PxSys::Screen::Height;
 
 	%sizeX = %data.brickSizeX;
 	%sizeY = %data.brickSizeY;
@@ -39,6 +50,8 @@ function buildPxSysScreen ( %data, %pos, %angleID, %color, %isVertical )
 	%sizeMulX = brickToMetric (%sizeX);
 	%sizeMulY = brickToMetric (%sizeY);
 	%sizeMulZ = plateToMetric (%sizeZ);
+
+	%group = $PxSys::Screen::BrickGroup;
 
 	for ( %x = 0;  %x < %width;  %x++ )
 	{
@@ -76,7 +89,7 @@ function buildPxSysScreen ( %data, %pos, %angleID, %color, %isVertical )
 			%brickPos = vector2DRotateDeg (%brickX SPC %brickY, angleIDToDeg (%angleID));
 			%brickPos = %brickPos SPC %brickZ;
 
-			%brick = PxSys_createBrick (%data, %brickPos, %angleID, %color, 1, $PxSys::BrickGroup, 1, 1);
+			%brick = PxSys_createBrick (%data, %brickPos, %angleID, %color, 1, %group, 1, 1);
 
 			if ( !isObject (%brick) )
 			{
