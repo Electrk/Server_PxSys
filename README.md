@@ -18,15 +18,15 @@ createPxSysTCP (23, "127.0.0.1", true);
 package MyPackage
 {
 	// We want to parent PxSys_setSize before we build our screen because
-    // it won't build unless we have a width and a height set.
+	// it won't build unless we have a width and a height set.
 
-    // The add-on doesn't do this automatically to give users full control of
-    // when and where they build their brick screen.
+	// The add-on doesn't do this automatically to give users full control of
+	// when and where they build their brick screen.
 	function PxSys_setSize ( %width, %height )
-    {
-    	Parent::PxSys_setSize (%width, %height);
-        buildPxSysScreen ();
-    }
+	{
+		Parent::PxSys_setSize (%width, %height);
+		buildPxSysScreen ();
+	}
 };
 activatePackage (MyPackage);
 
