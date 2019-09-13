@@ -1,4 +1,4 @@
-// Builds either a vertical or horizontal brick screen for a PxSysScreen object.
+// Builds either a vertical or horizontal brick screen.
 function buildPxSysScreen ( %data, %pos, %angleID, %color, %isVertical )
 {
 	if ( $PxSys::HasBrickScreen )
