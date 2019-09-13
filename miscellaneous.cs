@@ -86,6 +86,7 @@ package Server_PxSys
 		Parent::onMissionEnded ();
 
 		deleteVariables ("$PxSys::Screen::*");
+
 		$PxSys::HasBrickScreen      = false;
 		$PxSys::ColorPrintsEnabled  = false;
 		$PxSys::LetterPrintsEnabled = false;
