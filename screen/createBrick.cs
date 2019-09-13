@@ -46,26 +46,14 @@ function PxSys_createBrick ( %data, %pos, %angID, %color, %plant, %brickGroup, %
 	{
 		%error = %brick.plant ();
 
-		if ( %error == 1  &&  !%ignoreStuck )
-		{
-			%brick.delete ();
-			return 0;
-		}
-
-		if ( %error == 2  &&  !%ignoreFloat )
-		{
-			%brick.delete ();
-			return 0;
-		}
-
-		if ( %error >= 3 )
+		if ( (%error == 1  &&  !%ignoreStuck)  ||  (%error == 2  &&  !%ignoreFloat)  ||  %error >= 3 )
 		{
 			%brick.delete ();
 			return 0;
 		}
 
 		%brick.onPlant ();
-		%brick.setTrusted (1);
+		%brick.setTrusted (true);
 	}
 
 	return %brick;
