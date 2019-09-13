@@ -1,4 +1,5 @@
 // Builds either a vertical or horizontal brick screen.
+// To use a custom brick group, set $PxSys::Screen::BrickGroup
 function buildPxSysScreen ( %data, %pos, %angleID, %color, %isVertical )
 {
 	if ( $PxSys::HasBrickScreen )
