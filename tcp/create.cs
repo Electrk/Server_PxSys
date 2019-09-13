@@ -20,9 +20,8 @@ function createPxSysTCP ( %port, %address, %connectOnCreated )
 
 	%tcp = new TCPObject (PxSysTCP);
 
-	%tcp.port        = %port;
-	%tcp.address     = %address;
-	%tcp.isServerTCP = true;
+	%tcp.port    = %port;
+	%tcp.address = %address;
 
 	MissionCleanup.add (%tcp);
 
