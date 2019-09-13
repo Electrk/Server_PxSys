@@ -70,7 +70,7 @@ function buildPxSysScreen ( %data, %pos, %angleID, %color, %isVertical )
 			%brickY = %posY + (%centeredY * %sizeMulY);
 			%brickZ = %posZ;
 
-			// Mirroring fixes
+			// Positioning fixes
 			if ( %isVertical )
 			{
 				// Since we're building vertically, start at the top and build down.
@@ -90,7 +90,7 @@ function buildPxSysScreen ( %data, %pos, %angleID, %color, %isVertical )
 			%brickPos = vector2DRotateDeg (%brickX SPC %brickY, angleIDToDeg (%angleID));
 			%brickPos = %brickPos SPC %brickZ;
 
-			%brick = PxSys_createBrick (%data, %brickPos, %angleID, %color, 1, %group, 1, 1);
+			%brick = PxSys_createBrick (%data, %brickPos, %angleID, %color, true, %group, true, true);
 
 			if ( !isObject (%brick) )
 			{
