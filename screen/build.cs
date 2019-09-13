@@ -29,7 +29,7 @@ function buildPxSysScreen ( %data, %pos, %angleID, %color, %isVertical )
 		return;
 	}
 
-	PxSys_deleteAllPixels (true);
+	PxSys_deleteAllPixels ();
 
 	if ( %isVertical $= "" )
 	{
