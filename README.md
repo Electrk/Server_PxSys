@@ -1,4 +1,4 @@
-# Server_PxSys
+# Support_PxSys
 > A client for PxSys that renders pixel data on bricks.
 
 

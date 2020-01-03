@@ -37,14 +37,14 @@ function PxSys_onError ( %command, %errorCode, %errorMessage, %data )
 // ------------------------------------------------
 
 
-package Server_PxSys
+package Support_PxSys
 {
 	function onMissionLoaded ()
 	{
 		Parent::onMissionLoaded ();
 
 		%featuresDisabled = false;
-		%msg = "WARNING: Server_PxSys - ";
+		%msg = "WARNING: Support_PxSys - ";
 
 		if ( $printARNumPrintsPxSys > 0 )
 		{
@@ -92,4 +92,4 @@ package Server_PxSys
 		$PxSys::LetterPrintsEnabled = false;
 	}
 };
-activatePackage (Server_PxSys);
+activatePackage (Support_PxSys);
